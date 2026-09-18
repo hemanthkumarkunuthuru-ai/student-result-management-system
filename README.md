@@ -137,8 +137,7 @@ The application is hosted live on **Render Cloud Platform**.
 
 ## 👨‍💻 Developer
 **Velpula Ganga Vardhan**  
-📧 Email: gangavardhan2005@gmail.com  
-🌐 GitHub: https://github.com/VelpulaGangavardhan  
+📧 Email: hemanthkumarkunuthuru@gmail.com  
 
 ---
 
