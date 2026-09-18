@@ -136,7 +136,7 @@ The application is hosted live on **Render Cloud Platform**.
 ---
 
 ## 👨‍💻 Developer
-**Velpula Ganga Vardhan**  
+**Hemanth Kumar**  
 📧 Email: hemanthkumarkunuthuru@gmail.com  
 
 ---
