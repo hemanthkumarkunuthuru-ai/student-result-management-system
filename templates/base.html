@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Result Manager</title>
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<nav class="topbar">
+    <div class="brand">
+        <i class="fa-solid fa-graduation-cap"></i> Result Manager
+    </div>
+
+    <div class="menu">
+
+{% if request.path == '/' %}
+
+    <!-- Home Page Menu (Simple) -->
+    <a href="/">Home</a>
+    {% if user.is_authenticated %}
+        <a href="/logout/">Logout</a>
+    {% else %}
+        <a href="/login/">Login</a>
+        <a href="/register/">Create Account</a>
+    {% endif %}
+
+{% else %}
+
+    <!-- Inside Website Menu (Full) -->
+    {% if user.is_authenticated %}
+        <a href="/dashboard/">Dashboard</a>
+        <a href="/students/">Students</a>
+        <a href="/add-marks/">Add Marks</a>
+        <a href="/search/">Search</a>
+        <a href="/logout/">Logout</a>
+    {% else %}
+        <a href="/">Home</a>
+        <a href="/login/">Login</a>
+        <a href="/register/">Create Account</a>
+    {% endif %}
+
+
+{% endif %}
+
+</div>
+
+
+
+</nav>
+
+{% if messages %}
+<div id="message-box">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+  setTimeout(() => {
+      const box = document.getElementById("message-box");
+      if (box){
+          box.style.transition = "opacity 1s";
+          box.style.opacity = "0";
+          setTimeout(()=> box.remove(), 1000);
+      }
+  }, 4000);   // message disappears after 4 seconds
+</script>
+{% endif %}
+
+
+
+<div class="layout">
+    
+    <div class="page">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</div>
+
+
+<footer class="footer-change">
+    © 2025 Hemanth Kumar — All Rights Reserved
+</footer>
+
+</body>
+</html>

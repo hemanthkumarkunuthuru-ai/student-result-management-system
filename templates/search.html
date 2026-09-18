@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="search-page">
+
+<h2>Search Student</h2>
+<p>Enter roll number to view student result</p>
+
+<form method="GET" class="search-bar">
+    <input type="text"
+           name="roll"
+           placeholder="Enter Roll Number"
+           value="{{ request.GET.roll }}"
+           required>
+
+    <button type="submit">
+        Search
+    </button>
+</form>
+
+{% if message %}
+<div class="alert danger">
+    {{ message }}
+</div>
+{% endif %}
+
+
+
+{% if student %}
+<br>
+
+<div class="result-card">
+    <h3>{{student.name}} ({{student.roll}})</h3>
+
+    <span class="tag blue">Total: {{total}}</span>
+    <span class="tag green">Percentage: {{percentage}}%</span><br><br>
+    <table>
+        <tr>
+            <th>Subject</th>
+            <th>Marks</th>
+        </tr>
+
+        {% for m in marks %}
+        <tr>
+            <td>{{m.subject.name}}</td>
+            <td>{{m.marks}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endif %}
+
+</div>
+
+
+
+
+{% endblock %}

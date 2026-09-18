@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="add-container">
+
+    <div class="title-area">
+        <h2>Add Marks</h2>
+        <p>Enter marks for registered students</p>
+    </div>
+
+    <div class="add-section ">
+
+        <!-- Left Form -->
+        <div class="left-card left-add-section">
+            <h3>Enter Marks</h3>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="input-group">
+                    <label>Select Student</label>
+                    <select name="student" required>
+                        <option value="">Select Student</option>
+                        {% for s in students %}
+                        <option value="{{s.id}}">{{s.roll}} - {{s.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Select Subject</label>
+                    <select name="subject" required>
+                        <option value="">Select Subject</option>
+                        {% for s in subjects %}
+                        <option value="{{s.id}}">{{s.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Enter Marks</label>
+                    <input type="number" name="marks" placeholder="Enter marks" required>
+                </div>
+
+                <button class="save-btn">Save Marks</button>
+            </form>
+        </div>
+
+        <!-- Right Subjects -->
+        <div class="right-card left-add-section">
+            <h3>Available Subjects</h3>
+
+            <div class="subject-list">
+                {% for s in subjects %}
+                <div class="subject-item">
+                    <strong>{{s.name}}</strong>
+                    <span>Max: {{s.max_marks}} | Pass: {{s.pass_marks}}</span>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

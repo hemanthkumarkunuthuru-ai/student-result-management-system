@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Dashboard</h2>
+<p class="subtitle">Welcome to the Student Result Management System</p>
+
+<div class="dashboard-cards">
+
+<div class="dash-card">
+<i class="fa-solid fa-users"></i>
+<h3>{{students}}</h3>
+<p>Total Students</p>
+</div>
+
+<div class="dash-card">
+<i class="fa-solid fa-book"></i>
+<h3>{{subjects}}</h3>
+<p>Subjects</p>
+</div>
+
+<div class="dash-card">
+<i class="fa-solid fa-file"></i>
+<h3>{{marks}}</h3>
+<p>Marks Entries</p>
+</div>
+
+</div>
+
+<h3>Quick Actions</h3>
+
+<div class="quick-grid">
+<a class="quick-box" href="/add-student/">
+<i class="fa-solid fa-user-plus"></i>
+Add Student
+</a>
+
+<a class="quick-box" href="/add-marks/">
+<i class="fa-solid fa-pen-to-square"></i>
+Add Marks
+</a>
+
+<a class="quick-box" href="/search/">
+<i class="fa-solid fa-magnifying-glass"></i>
+Search Result
+</a>
+</div>
+
+{% endblock %}

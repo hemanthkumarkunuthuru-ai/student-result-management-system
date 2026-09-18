@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Students</h2>
+<p class="subtitle">Manage student records</p>
+
+<a class="primary-btn" href="/add-student/">
+<i class="fa-solid fa-plus"></i> Add Student
+</a>
+
+<div class="card studis-box">
+<table>
+<tr>
+<th>Roll No</th>
+<th>Name</th>
+<th>Branch</th>
+<th>Email</th>
+<th>ViewResult</th>
+<th>Action</th>
+</tr>
+
+{% for s in students %}
+<tr>
+<td>{{s.roll}}</td>
+<td>{{s.name}}</td>
+<td>{{s.course}}</td>
+<td>{{s.semester}}</td>
+<td>
+    <a href="{% url 'search' %}?roll={{ s.roll }}" class="view-btn">
+    View
+    </a>
+
+
+</td>
+<td>
+<a class="delete" href="/delete/{{s.roll}}/">
+<i class="fa-solid fa-trash"></i>
+</a>
+</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+
+{% endblock %}
